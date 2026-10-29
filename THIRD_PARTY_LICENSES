@@ -1,0 +1,36 @@
+**********************
+THIRD PARTY COMPONENTS
+**********************
+
+This software includes, or installs at run time, third-party software subject to the
+following copyrights. None of the application components (everything except the check-only development tools
+at the end, and the operating system image of the optional Keycloak host) is licensed under the GPL, LGPL or AGPL.
+The licenses are those declared by each package; the exact package versions are pinned in
+requirements.txt.
+
+Python packages used by the scripts and tests (requirements.txt), installed with pip:
+
+- boto3 - Apache-2.0 - https://github.com/boto/boto3
+- botocore - Apache-2.0 - https://github.com/boto/botocore
+- s3transfer - Apache-2.0 - https://github.com/boto/s3transfer
+- jmespath - MIT - https://github.com/jmespath/jmespath.py
+- python-dateutil - Apache-2.0 and BSD-3-Clause (dual) - https://github.com/dateutil/dateutil
+- six - MIT - https://github.com/benjaminp/six
+- urllib3 - MIT - https://github.com/urllib3/urllib3
+
+The Lambda deployment package contains only handler.py and uses the Python standard library.
+
+Software installed on the optional Keycloak instance at run time (pulled by
+idp/keycloak/infra.py, not distributed in this repository):
+
+- Keycloak - Apache-2.0 - https://github.com/keycloak/keycloak
+- PostgreSQL 16 - PostgreSQL License - https://www.postgresql.org/about/licence/
+- Caddy - Apache-2.0 - https://github.com/caddyserver/caddy
+- Docker Engine and Docker Compose (Ubuntu packages docker.io, docker-compose-v2) - Apache-2.0 - https://github.com/moby/moby
+- python3-boto3 (Ubuntu package, reads the admin secret) - Apache-2.0 - https://github.com/boto/boto3
+- Ubuntu Server 24.04 LTS AMI (Canonical, from the public SSM parameter) - the operating system image; its packages carry their own licenses, some of them GPL. Nothing from it is distributed or linked by this sample
+
+Command line tools the scripts call but do not include: AWS CLI (Apache-2.0).
+
+Development tools used for checks only (not dependencies): ruff (MIT), bandit (Apache-2.0),
+checkov (Apache-2.0, optional), git-secrets (Apache-2.0), pre-commit (MIT).

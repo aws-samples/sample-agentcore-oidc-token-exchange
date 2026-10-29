@@ -1,0 +1,38 @@
+# Credentials and secrets: never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials
+aws-credentials
+
+# AI agent configuration: must not be committed (aws-samples rule)
+CLAUDE.md
+AGENTS.md
+.claude/
+
+# IDE and OS files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.ruff_cache/
+
+# Build output, local state and test evidence of this sample
+.build/
+.state/
+.state-*/
+evidence/
+
+# A maintainer's local list for tests/test_public_hygiene.py
+.private-names

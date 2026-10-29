@@ -1,0 +1,8 @@
+# Checkov configuration (https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html)
+# This sample has no CloudFormation/Terraform templates; the IaC is Python (boto3). Checkov scans the
+# files it understands (secrets, GitHub workflows, Dockerfiles if added later).
+framework:
+  - secrets
+  - github_actions
+  - dockerfile
+quiet: true

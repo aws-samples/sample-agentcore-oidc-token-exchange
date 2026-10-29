@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.1
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.9.4
+    hooks:
+      - id: bandit
+        args: [-c, pyproject.toml, -r]
+        additional_dependencies: ["bandit[toml]==1.9.4"]
+        exclude: ^tests/
+  - repo: local
+    hooks:
+      - id: git-secrets
+        name: git-secrets
+        entry: git secrets --pre_commit_hook
+        language: system
+        pass_filenames: true
+      - id: public-hygiene
+        name: public hygiene test
+        entry: python -m unittest tests.test_public_hygiene
+        language: system
+        pass_filenames: false

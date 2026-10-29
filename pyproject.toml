@@ -1,0 +1,5 @@
+[tool.bandit]
+exclude_dirs = ["tests", ".state", ".build", "evidence", ".venv", "venv"]
+# B404/B603/B607: the scripts run command line tools with fixed argument lists (never a shell,
+# never untrusted input); the sample is an operator tool and the CLIs are resolved from the operator's PATH on purpose.
+skips = ["B404", "B603", "B607"]
